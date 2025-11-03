@@ -1,6 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
 public class RandomGame {
+    
+    // GLOBAL
+    static int x = 3;
     public static void main(String[] args){
         
         // RANDOM GUESSING NUMBER
@@ -38,10 +41,14 @@ public class RandomGame {
             System.out.print("\n");
         }
         
-        int x = sumNumber(3,4);
-        System.out.print("\n " + x);
+        int num = sumNumber(3,4);
+        System.out.print("\n " + num);
 
         System.out.print("\n ADD:" + add(3,4,6));
+
+        System.out.printf("\n Prije lokalnog x: %d", x);
+        int x = 1; // LOCAL
+        System.out.printf("\n Posle lokalnog x: %d", x); // !!! Prioritet ima lokalna promjenljiva !!
     }
 
     static int sumNumber(int x, int y){
