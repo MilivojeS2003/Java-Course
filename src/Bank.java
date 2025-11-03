@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Arrays;
 
 public class Bank {
 
@@ -10,6 +10,16 @@ public class Bank {
         double balance = 0;
         boolean isRunning = true;
         int choice;
+
+        String[] fruits = {"apple", "bannana", "peach", "orange"};
+
+        System.out.println(fruits); // -> daje adresu!!!
+        System.out.println(fruits[0]);
+
+        Arrays.sort(fruits);
+        for(String fruit : fruits){
+            System.out.println(fruit);
+        }
 
         while(isRunning){
         System.out.println("*********");
