@@ -1,4 +1,8 @@
 // Delovi auta - ne mogu postojati nezavisno
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 class Engine {
     private String type;
     private int horsepower;
@@ -69,14 +73,66 @@ class Car {
 
 public class Application {
     public static void main(String[] args) {
+
+         // Engine i Wheels NE POSTOJE izvan Car objekta
+        // Ne možeš pristupiti engine ili wheels direktno
+
+
         Engine engine1 = new Engine("V10.1", 300);
         Wheels wheels1 = new Wheels(5, "Winter premium");
         Car car = new Car("BMW");
         Car mojeAuto = new Car("Passerati", engine1,wheels1);
         System.out.println(mojeAuto.displayCar());
         car.drive();
-        
-        // Engine i Wheels NE POSTOJE izvan Car objekta
-        // Ne možeš pristupiti engine ili wheels direktno
+
+        ArrayList<Integer> list = new ArrayList();
+        ArrayList<String> fruits = new ArrayList<>();
+
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        fruits.add("Banana");
+        fruits.add("Mankgo");
+
+        System.out.println(list);
+        System.out.println(fruits);
+
+        fruits.remove(0);
+
+        System.out.println(fruits);
+        fruits.set(0, "Peach");
+        System.out.println(fruits);
+
+        for(Integer l : list ){
+            System.out.println(l);           
+        }
+
+        ArrayList<String> foods = new ArrayList<>();
+
+        System.out.print("Enter the number of food you would like:");
+        Scanner scanner = new Scanner(System.in);
+        int numOfFood = scanner.nextInt();
+        scanner.nextLine();
+
+        for(int i=0; i<numOfFood; i++){
+            System.out.print("Enter food :");
+            String food = scanner.nextLine();
+            foods.add(food);
+        }
+
+        System.out.println(foods);
+
+        try{
+            System.out.println(1/0);
+        }catch(ArithmeticException e){
+            System.out.println("YOC CANT DIVEDI BY ZERO!");
+        }
+        catch(Exception e){
+            System.out.println("Something went wrong");
+        }finally{
+            System.out.println("Finally is optional!!!");
+        }
+    
     }
 }
