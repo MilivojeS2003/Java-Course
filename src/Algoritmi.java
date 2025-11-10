@@ -99,6 +99,20 @@ public class Algoritmi {
 
         int idx3 = interpolationSreach(array,2);
         System.out.println("Interpolation Sreach: " + idx3);
+
+        int[] array2 = {2,4,8,16,32,64,128,256,512,1024};
+        int idx4 = interpolationSreach(array2,1024);
+        System.out.println("Interpolation Sreach on Array2: " + idx4);
+
+        System.out.println("*************************");
+        System.out.println(" --- Bubble Sort ----");
+        System.out.println("*************************");
+
+        int[] array3 = {9,10,8,1,32,100,43,90,2};
+        bubbleSort(array3);
+        selectedSort(array3);
+        insertionSort(array3);
+
     }
 
     // ispravljeno: vraća indeks
@@ -136,14 +150,89 @@ public class Algoritmi {
         int low = 0;
         int high = array.length - 1;
 
-        while(value > array[low] && value < array[high] && low <= high){
-            int probe = low + (high-low) * (value - array[low]) / (array[high] - array[low]);
-            System.out.println("Probe: " + probe);
+        while(value >= array[low] && value <= array[high] && low <= high){
+            int probe = low + ((high-low) * (value - array[low])) / (array[high] - array[low]);
+            System.out.println("Probe: " + probe + " High: " + high + " Low: " + low);
 
             if(array[probe] == value){
                 return probe;
+            }else if(array[probe] < value){
+                low = probe+1;
+            }else{
+                high = probe-1;
             }
         }
-        return 0;
+        return -1;
+    }
+
+    public static void bubbleSort(int[] array){
+        //int temp = array.get(0);
+        // {9,10,8,1,32,100,43,90,2}
+        int temp;
+        for(int i=0;i<array.length-1;i++){
+            for(int j=0;j<array.length - i -1;j++){
+                if(array[j+1] < array[j]){
+                    temp = array[j+1];
+                    array[j+1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+
+        System.out.println("Konacan niz je:");
+        for(int num:array){
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void selectedSort(int[] array){
+        //int min = array[0];
+        int temp;
+        // int pos=0;
+        for(int i=0;i<array.length-1;i++){
+            int min = array[i];
+            int pos = i;
+            for(int j=i+1; j<array.length-1;j++){
+                if(array[j] < min){
+                    min = array[j];
+                    pos = j;
+                }
+            }
+            temp = array[i];
+            array[i] = array[pos];
+            array[pos] = temp;
+        }
+        System.out.println("Konacan niz za Select Sort je: ");
+        for(int num:array){
+            System.out.print(num + " ");
+        }
+
+    }
+
+    // {9,10,8,1,32,100,43,90,2}
+    public static void insertionSort(int[] array){
+        int temp;
+        int t;
+        for(int i=1;i<array.length-1;i++){
+            temp = array[i];
+            int j = i-1;
+            // for(int j=i-1;j>=0;j--){
+            //     if(temp < array[j]){
+            //         t = temp;
+            //         temp = array[j];
+            //         array[j] = t;
+            //     }else{
+            //         break;
+            //     }
+            while(j >= 0 && array[j] > temp){
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = temp;
+            }
+        System.out.println("Konacan niz za Insertion Sort je: ");
+        for(int num:array){
+            System.out.print(num + " ");
+        }
     }
 }
