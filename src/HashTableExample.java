@@ -7,11 +7,12 @@ public class HashTableExample {
         HashMap<String, Integer> students = new HashMap<>();
 
         // 2️⃣ Dodajemo elemente u mapu
-        students.put("Ana", 95);
+        students.put("Ana", 95); // <key,value>
         students.put("Marko", 88);
         students.put("Ivana", 76);
         students.put("Petar", 90);
         students.put("Milica", 82);
+        //students.put(95,"Miko");
 
         System.out.println("=== Početna mapa ===");
         printMap(students);
@@ -19,6 +20,7 @@ public class HashTableExample {
         // 3️⃣ Pristup vrednostima
         System.out.println("\nOcena Ane: " + students.get("Ana"));
         System.out.println("Ocena Ivane: " + students.get("Ivana"));
+        IO.println("Pistupimo preko value: " + students.get(95)); // moze samo preko kljuca da se dodje do vrijednosti
 
         // 4️⃣ Provera postojanja ključa/vrednosti
         System.out.println("\nDa li postoji Marko? " + students.containsKey("Marko"));
@@ -30,7 +32,7 @@ public class HashTableExample {
         printMap(students);
 
         // 6️⃣ Uklanjanje elemenata
-        students.remove("Petar");
+        students.remove("Petar"); //Samo preko Kljuva mozemo izbrisati mapu
         System.out.println("\nNakon brisanja Petra:");
         printMap(students);
 
@@ -76,7 +78,7 @@ public class HashTableExample {
 
     // Metoda za lep ispis
     private static void printMap(Map<String, Integer> map) {
-        for (String key : map.keySet()) {
+        for (String key : map.keySet()) { // Na ovaj nacin prolazimo kroz mapu
             System.out.println(key + " -> " + map.get(key));
         }
     }
