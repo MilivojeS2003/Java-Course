@@ -98,12 +98,12 @@ public class Algoritmi {
             System.out.println("Element (bin) not found");
         }
 
-        int idx3 = interpolationSreach(array,2);
-        System.out.println("Interpolation Sreach: " + idx3);
+        // int idx3 = interpolatSystem.outnSreach(array,2);
+        // System.out.println("InterpolatSystem.outn Sreach: " + idx3);
 
         int[] array2 = {2,4,8,16,32,64,128,256,512,1024};
-        int idx4 = interpolationSreach(array2,1024);
-        System.out.println("Interpolation Sreach on Array2: " + idx4);
+        //int idx4 = interpolatSystem.outnSreach(array2,1024);
+        //System.out.println("InterpolatSystem.outn Sreach on Array2: " + idx4);
 
         System.out.println("*************************");
         System.out.println(" --- Bubble Sort ----");
@@ -112,16 +112,16 @@ public class Algoritmi {
         int[] array3 = {9,10,8,1,32,100,43,90,2};
         bubbleSort(array3);
         selectedSort(array3);
-        insertionSort(array3);
+        //insertSystem.outnSort(array3);
 
-        IO.println("\n0VO JE FAKTORIAL:");
-        IO.println(factorial(7));
+        System.out.println("\n0VO JE FAKTORIAL:");
+        System.out.println(factorial(7));
 
-        IO.println("0VO JE je stepen:");
-        IO.println(power(2,4));
+        System.out.println("0VO JE je stepen:");
+        System.out.println(power(2,4));
 
         mergeSort(array3);
-        IO.println("Ovo je niz posle Merge Sort-a: " + Arrays.toString(array3));
+        System.out.println("Ovo je niz posle Merge Sort-a: " + Arrays.toString(array3));
 
         System.out.println("*************************");
         System.out.println(" --- Quick Sort ----");
@@ -130,7 +130,7 @@ public class Algoritmi {
         int[] array4 = {9,10,8,1,32,100,43,90,2,87,120};
 
         quickSort(array4,0, array4.length - 1);
-        IO.println("Ovo je niz posle Quick Sort-a: " + Arrays.toString(array4));
+        System.out.println("Ovo je niz posle Quick Sort-a: " + Arrays.toString(array4));
 
 
     }
@@ -166,7 +166,7 @@ public class Algoritmi {
         return -1;
     }
 
-    private static int interpolationSreach(int[] array, int value){
+    private static int interpolatSystem(int[] array, int value){
         int low = 0;
         int high = array.length - 1;
 
@@ -230,7 +230,7 @@ public class Algoritmi {
     }
 
     // {9,10,8,1,32,100,43,90,2}
-    public static void insertionSort(int[] array){
+    public static void insertSystem(int[] array){
         int temp;
         int t;
         for(int i=1;i<array.length-1;i++){
@@ -250,7 +250,7 @@ public class Algoritmi {
             }
             array[j+1] = temp;
             }
-        System.out.println("Konacan niz za Insertion Sort je: ");
+        System.out.println("Konacan niz za InsertSystem.outn Sort je: ");
         for(int num:array){
             System.out.print(num + " ");
         }
@@ -290,7 +290,7 @@ public class Algoritmi {
         }
 
         // Ključna tačka rekurzije: Pozivamo istu funkciju na manjim nizovima
-        IO.println("Dijelimo nizove na: " + Arrays.toString(leftArray) + " i na: " + Arrays.toString(rightArray));
+        System.out.println("Dijelimo nizove na: " + Arrays.toString(leftArray) + " i na: " + Arrays.toString(rightArray));
         mergeSort(leftArray);
         mergeSort(rightArray);
 
@@ -330,13 +330,13 @@ public class Algoritmi {
 
         if(start >= end) return; // BASE CASE
 
-        int pivot = partition(array, start, end);
+        int pivot = partitSystem(array, start, end);
         quickSort(array, start, pivot - 1); // rekuzivni poziv za end = pivot - 1 -> lijeva strana pivora
         quickSort(array, pivot + 1, end); // rekuzivni pozvi za start = pivot + 1 -> desna strana pivota
 
     }
 
-    private static int partition(int [] array, int start, int end){
+    private static int partitSystem(int [] array, int start, int end){
 
         int pivot = array[end];
         int i = start - 1;
@@ -345,11 +345,11 @@ public class Algoritmi {
             if(array[j] <= pivot){
                 i++;
                 // Pivot je veci od elementa na poziciji J zamjeni elemente sa pozicijama I i J
-                IO.println(array[i] + " < " + pivot + " Mijenjamo : " + array[j] + " i " + array[i]);
+                System.out.println(array[i] + " < " + pivot + " Mijenjamo : " + array[j] + " i " + array[i]);
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
-                IO.println("SAD IMAMO: " + Arrays.toString(array));
+                System.out.println("SAD IMAMO: " + Arrays.toString(array));
 
             }
         }
