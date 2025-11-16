@@ -22,7 +22,7 @@ public class App {
         table.put("777", "Gary");
 
         for(String key : table.keySet()){
-            IO.println(key.hashCode() + " -> " + key + " -> " +table.get(key));
+            System.out.println(key.hashCode() + " -> " + key + " -> " +table.get(key));
         }
 
 
